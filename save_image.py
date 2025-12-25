@@ -24,14 +24,14 @@ class SaveImagePlus:
         return {
             "required": {
                 "images": ("IMAGE", ),
-                "filename_prefix": ("STRING", {"default": "ComfyUI"}),
+                "filename_prefix": ("STRING", {"default": "zymuse"}),
                 "file_type": ([s.FILE_TYPE_PNG, s.FILE_TYPE_JPEG, s.FILE_TYPE_WEBP_LOSSLESS, s.FILE_TYPE_WEBP_LOSSY], ),
                 "remove_metadata": ("BOOLEAN", {"default": False}),
             },
             "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},
         }
 
-    def save_images(self, images, filename_prefix="ComfyUI", file_type=FILE_TYPE_PNG, remove_metadata=False, prompt=None, extra_pnginfo=None):
+    def save_images(self, images, filename_prefix="zymuse", file_type=FILE_TYPE_PNG, remove_metadata=False, prompt=None, extra_pnginfo=None):
         output_dir = folder_paths.get_output_directory()
         full_output_folder, filename, counter, subfolder, _ = folder_paths.get_save_image_path(filename_prefix, output_dir, images[0].shape[1], images[0].shape[0])
         extension = {
